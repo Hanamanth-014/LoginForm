@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration and Feedback Form</title>
+    <link rel="stylesheet" href="R.css">
+</head>
+<body>
+    <br><br><br><br>
+    <div class="container">
+        
+        <form id="registration-form">
+            <h2>Registration Form</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="enter your name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="enter your Email" required><br><br>
+            <button type="submit">Register</button>
+        </form>
+
+        
+        <form id="feedback-form" style="display: none;">
+            <h2>Feedback Form</h2>
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea><br><br>
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+    <body>
+   <form class="confirmation" id="confirmation-message" style="display: none;" >
+        <h2>Thank you!</h2>
+        <p>Your registration/feedback has been submitted.</p></form>
+    </body>
+    
+
+    <script>
+    
+    const registrationForm = document.getElementById("registration-form");
+        const feedbackForm = document.getElementById("feedback-form");
+        const confirmationMessage = document.getElementById("confirmation-message");
+
+        registrationForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            registrationForm.style.display = "none";
+            feedbackForm.style.display = "block";
+        });
+
+        feedbackForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            registrationForm.style.display="none";
+            feedbackForm.style.display = "none";
+            confirmationMessage.style.display = "block";
+        });
+
+
+    </script>
+</body>
+</html>
